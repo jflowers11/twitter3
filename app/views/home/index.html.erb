@@ -1,2 +1,13 @@
 <center><h1>TWITTER</h1></center>
 <p>Let's get you connected</p>
+
+
+<% if user_signed_in? %>
+  <div>Signed in as... <%= current_user.email %></div>
+   <h3><%=link_to('WHATS ON YOUR MIND?', new_tweet_path) %></h3><br>
+   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+
+  <% else %>
+  You are not signed in. Please sign in to continue.
+   <h2><%= link_to('Login Here', new_user_session_path) %></h2>
+<% end %>

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
   # GET /comments
   # GET /comments.json
   def index
@@ -15,6 +15,8 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
+
+   
   end
 
   # GET /comments/1/edit
@@ -25,6 +27,8 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
+
+    @comment.user_id = current_user.id
 
     respond_to do |format|
       if @comment.save
