@@ -13,8 +13,6 @@ end
   jf.save
 
 
-
-
 #create 12 tweets per user
 users = User.all
 users.each do |user|
