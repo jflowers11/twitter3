@@ -32,6 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'faker', '~> 1.2.0'
+
 gem 'devise'
 
 gem 'bootstrap-sass'
